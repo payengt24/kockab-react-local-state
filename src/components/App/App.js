@@ -52,7 +52,7 @@ class App extends Component {
         <button onClick={this.handleSubmit}>Submit</button>
 
 
-        <p>The current user is {this.state.user} and lives in {this.state.city}</p>
+        <p>{this.state.user} is from {this.state.city}</p>
       </div>
 
 
