@@ -6,7 +6,16 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { user: 'Pa Yeng', city: 'Brooklyn Center'};
+    //instead of this- change it to an object below
+    // this.state = { user: '', city: ''};
+
+    //changing to object
+    this.state = {
+      user: {
+        name: '',
+        city: ''
+      }
+    }
 
     //makes this in handle change the same as the constructor
     //similar to cons self = this
@@ -22,7 +31,12 @@ class App extends Component {
 
     // this.state.user = event.target.value;
 
-    this.setState({ user: event.target.value });
+    this.setState({
+      user: {
+        name: event.target.value,
+        city: this.state.user.city,
+      }
+    });
 
   }
 
@@ -30,7 +44,12 @@ class App extends Component {
     console.log('city input was change')
     console.log('event.target', event.target);
     console.log('event.target', event.target.value);
-    this.setState({ city: event.target.value });
+    this.setState({
+      user: {
+        name: this.state.user.name,
+        city: event.target.value,
+      }
+    });
   }
 
 
@@ -41,7 +60,7 @@ class App extends Component {
     console.log(this.state.city);
 
 
-  }  
+  }
 
   render() {
     return (
@@ -52,7 +71,9 @@ class App extends Component {
         <button onClick={this.handleSubmit}>Submit</button>
 
 
-        <p>{this.state.user} is from {this.state.city}</p>
+        {/* <p>{this.state.user} is from {this.state.city}</p> */}
+        {/* change to a subobject */}
+        <p>{this.state.user.name} is from {this.state.user.city}</p>
       </div>
 
 
